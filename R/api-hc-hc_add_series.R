@@ -68,8 +68,8 @@ hc_add_series.ts <- function(hc, data, ...) {
   # http://stackoverflow.com/questions/29202021/
   timestamps <- data %>% 
     stats::time() %>% 
-    zoo::as.Date() %>% 
-    datetime_to_timestamp()
+    lubridate::date_decimal() %>% 
+    as.numeric()
   
   series <- list_parse2(data.frame(timestamps, as.vector(data)))
   
